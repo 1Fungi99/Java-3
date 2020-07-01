@@ -1,0 +1,6 @@
+.idea/
+*.txt
+*.iml
+out/
+.DS_Store
+
