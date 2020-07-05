@@ -1,6 +1,5 @@
 package regex;
 
-import java.util.*;
 import java.util.regex.*;
 
 class Regex {
@@ -62,7 +61,6 @@ class Regex {
         // 4.a Create an array of all the words besides the word 'sleepy'.  Each word does not have to be a separate element, although you can split it that way if you wish.  We just want an array that everything that is not 'sleepy'.  
 
         String sleepy = "I felt sleepy because I saw the others were sleepy and because I knew I should feel sleepy, but I wasn't really sleepy. If you're sleepy and you know it, clap your hands. Keep on being sleepy until you actually become sleepy";
-        String[] sleepyArray = sleepy.split(" ");
         final String sleepyRegex = "(sleepy)";
         final Pattern sleepyPattern = Pattern.compile(sleepyRegex, Pattern.MULTILINE | Pattern.CASE_INSENSITIVE);
         final Matcher sleepyMatcher = sleepyPattern.matcher(sleepy);
@@ -106,7 +104,7 @@ class Regex {
         //BONUS : 
         //5. You are looking for unicode arrow symbols in a string.  https://jrgraphix.net/r/Unicode/2190-21FF is a selection of unicode arrow symbols to aid you in your search.  Match all the codes that are arrows, and then print them out to the console.  They should be printing out as the arrow images.
 
-        String[] arrows = { "\u21FD", "\u26F7", "\u21FF", "\u21EF", "\u21EC", "\u26F9", "\u26FD", "\u26D4", "\u26A5",
-                "\u21FD", "\u2190", "\u26A1", "\u21BA", "\u2196", "\u2603", "\u21FD" };
+        // String[] arrows = { "\u21FD", "\u26F7", "\u21FF", "\u21EF", "\u21EC", "\u26F9", "\u26FD", "\u26D4", "\u26A5",
+        //         "\u21FD", "\u2190", "\u26A1", "\u21BA", "\u2196", "\u2603", "\u21FD" };
     }
 }

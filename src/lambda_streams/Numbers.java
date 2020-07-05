@@ -9,9 +9,11 @@ class Numbers {
 
     public static void main(String[] args) {
         //Part I :complete the static class methods that have been set up in this Numbers class java file.  Use streams to compute the results wherever possible.
-        System.out.println(nums);
+        // System.out.println(nums);
 
-        //Part II - refactor all of the class methods to accept lambda expressions. You can put the lambda functions directly inside the method calls, or defined them first, then pass them into the methods. give them the same names as the static methods, but add the word 'lambda' in front of every lambda function:
+        //Part II - refactor all of the class methods to accept lambda expressions. 
+        // You can put the lambda functions directly inside the method calls, or defined them first, then pass them into the methods. 
+        // Give them the same names as the static methods, but add the word 'lambda' in front of every lambda function:
         /* e.g.
         
         added(() -> {});
@@ -30,22 +32,59 @@ class Numbers {
         etc...
         
         */
-
+        for (int i = 0; i < nums.size(); i++) {
+            System.out.println("isOdd: ");
+            isOdd(i);
+            System.out.println("isEven: ");
+            isEven(i);
+            System.out.println("isPrime: ");
+            isPrime(i);
+        }
+        System.out.println("END");
     }
 
     static boolean isOdd(int i) {
         //determine if the value at the index i is odd.  return true if yes, return false if  no.
-        return false;
+        if (nums.get(i) % 2 != 0) {
+            System.out.println("    " + nums.get(i) + " is odd");
+            return true;
+        } else {
+            System.out.println("    " + nums.get(i) + " is not odd");
+            return false;
+        }
     }
 
     static boolean isEven(int i) {
         //determine if the value at the index i is even.  return true if yes, return false if  no.
-        return false;
+        if (nums.get(i) % 2 == 0) {
+            System.out.println("    " + nums.get(i) + " is even");
+            return true;
+        } else {
+            System.out.println("    " + nums.get(i) + " is not even");
+            return false;
+        }
     }
 
     static boolean isPrime(int i) {
         //determine if the value at the index i is a prime number.  return true if yes, return false if no.
-        return false;
+        boolean flag = false;
+        for (int j = 2; j <= nums.get(i) / 2; ++i) {
+            // condition for non-prime number
+            if (nums.get(i) % j == 0) {
+                flag = true;
+                break;
+            }
+        }
+        // is prime
+        if (!flag) {
+            System.out.println("    " + nums.get(i) + " is prime");
+            return false;
+        }
+        // is not prime
+        else {
+            System.out.println("    " + nums.get(i) + " is not prime");
+            return true;
+        }
     }
 
     static int added() {
@@ -86,7 +125,9 @@ class Numbers {
 
     static int append(int n) {
         //add a new value to the values list. return that value after adding it to the list.
-        return 0;
+        nums.add(n);
+        System.out.println(n + " has been added to 'nums' array");
+        return n;
     }
 
 }
