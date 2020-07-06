@@ -3,12 +3,22 @@ package lambda_streams;
 import java.util.Arrays;
 import java.util.List;
 
+interface Addable {
+    int add(int a, Integer b);
+}
+
+interface isEven {
+    boolean even(Integer a);
+}
+
 class Numbers {
     static List<Integer> nums = Arrays.asList(10, 100, 1000, 5, 50, 500, 3, 30, 300, 7, 70, 700, 1, 10, 100, 25, 250,
             2500);
 
     public static void main(String[] args) {
-        //Part I :complete the static class methods that have been set up in this Numbers class java file.  Use streams to compute the results wherever possible.
+        //Part I :complete the static class methods that have been set up in this Numbers class java file.  
+        //Use streams to compute the results wherever possible.
+
         // System.out.println(nums);
 
         //Part II - refactor all of the class methods to accept lambda expressions. 
@@ -32,15 +42,38 @@ class Numbers {
         etc...
         
         */
+        // lambda even
+        // ====================================================================
+        isEven lambdaEven = (a) -> {
+            if (a % 2 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        nums.forEach((n) -> lambdaEven.even(n));
+        // ====================================================================
+        // lambda add
+        // ====================================================================
+        int lambdaAddVar = 0;
+        Addable lambdaAdded = (a, b) -> {
+            return (a + b);
+        };
         for (int i = 0; i < nums.size(); i++) {
-            System.out.println("isOdd: ");
-            isOdd(i);
-            System.out.println("isEven: ");
-            isEven(i);
-            System.out.println("isPrime: ");
-            isPrime(i);
+            lambdaAddVar = lambdaAdded.add(lambdaAddVar, nums.get(i));
+            System.out.println(lambdaAddVar);
         }
-        System.out.println("END");
+        // ====================================================================
+
+        // for (int i = 0; i < nums.size(); i++) {
+        //     System.out.println("isOdd: ");
+        //     isOdd(i);
+        //     System.out.println("isEven: ");
+        //     isEven(i);
+        //     System.out.println("isPrime: ");
+        //     isPrime(i);
+        // }
+        // System.out.println("END");
     }
 
     static boolean isOdd(int i) {
